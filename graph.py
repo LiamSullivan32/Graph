@@ -276,11 +276,10 @@ class graph:
       start.distance=0
       self.edges=sorted(self.edges,key=lambda i: i.length,reverse=False)
       for j in self.edges:
-        print(temp)
-        temp=U.distance+E.length
-        if V.distance>temp:
-          V.distance=temp
-          V.prev=U
+        temp=j.v1.distance+j.length
+        if j.v2.distance>temp:
+          j.v2.distance=temp
+          j.v2.prev=j.v1
       l=[]
       for i in self.adjlist:
         l.append([i.distance,i])
